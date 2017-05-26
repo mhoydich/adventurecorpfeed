@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <!--  <link rel="icon" href="../favicon/" type="image/png">-->
+      <title>VR Feed Experience</title>
+      <!--<link href="../css/style.css" rel="stylesheet" type="text/css" media="screen" />-->
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+      <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>
+
+   </head>
+   <body>
+      <!-- **** A-SCENE **** -->
+      <a-scene vr-mode-ui="enabled: true" id="aframe_scene">
+         <!-- IDEAS: 
+        * Change sky color based on hour
+        * Change sky texture
+
+
+         -->
+
+         <!-- *** ASSETS *** -->
+         <a-assets>
+         <img id="demofeed" src="textures/demofeed.png">
+         <img id="demofeed1" src="textures/demofeed1.png">
+         </a-assets>
+         <a-entity position="0 0 -10" json-model="src:../models/json/mike_dancing.json" animation-mixer scale="1 1 1">
+         </a-entity>
+         
+         <!-- *** CAMERAS *** -->
+         <a-camera id="camera" position="0 3 0 " rotation="0 0 0 " fov="80" near="1" wasd-controls="enabled:false" power="false">
+            <!-- 
+               <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 400"
+                  position="0 0 -3"
+               
+                  geometry="primitive: sphere; radius: 0.01;"
+                  material="color: #aa0404; shader: flat"
+                  raycaster="far: 2000; interval: 300; "
+                  power="false">
+                
+                </a-entity>
+               -->
+         </a-camera>
+         
+         <!-- *** LIGHTS *** -->
+         <a-light type="ambient" intensity="0.45" color="#ffffff"></a-light>
+         <a-light type="point" intensity="0.15" position="-13 8 0"></a-light>
+         <a-light type="point" intensity="0.15" position="13 8 0"></a-light>
+         <a-light type="point" intensity="0.3" position="1 8 -7"></a-light>
+         
+         <!-- *** ENVIRONMENT *** -->
+         <!-- ** GROUND **-->
+         <a-plane id="ground" rotation="-90 0 0" position="0 0 0" height="400" width="400" material="shader: flat;" src="textures/grass.jpg" repeat="100, 100" ></a-plane>
+         <a-plane id="path" rotation="-90 0 0 " position="0 0.2 0" height="400" width="20" material="shader: flat;" color="#333" ></a-plane>
+         <a-plane id="path_borders" rotation="-90 0 0 " position="0 0.1 0" height="400" width="26" material="shader: flat;" color="#444" ></a-plane>
+
+
+        <!-- **FEED PANELS**-->
+        <!-- <a-plane id="feed_panel" rotation="0 15 0" position="-6 6 -10" height="8" width="8" material="shader: flat;" color="#666" ></a-plane>-->
+         <a-plane id="feed_panel" rotation="0 -15 0" position="4.5 6 -10" height="4" width="4" material="shader: flat;" color="#FFF" 
+         animation="property: scale; dir: normal; dur: 1000;
+                           easing: easeInSine; loop: false; to: 2 2 0" src="#demofeed"></a-plane>
+
+        <!-- **SKY** -->
+         <a-sky color="#d8e7ff" radius="350"></a-sky>
+         
+      </a-scene>
+      <script>
+
+      var sceneEl = document.querySelector('a-scene');
+      var scene = sceneEl.object3D;
+      var cameraEl = document.querySelector('a-camera');
+      var camera = cameraEl.object3D;
+      var countSx =-1;
+      var countDx =-11;
+      var e_pressed= false;
+
+      document.addEventListener("keydown", function (){   
+         var x = event.keyCode;
+         if(x==69){ //E KEY
+            if(e_pressed==false) {e_pressed=true;}
+            else {e_pressed= false;}
+        }
+      }
+)
+
+         function updateData(){
+        requestAnimationFrame(updateData);
+        var posZ = camera.position.z;
+        if(e_pressed==true){
+          //camera.tranlateZ(-0.08);
+          camera.position.z-=0.08;
+        }
+
+        if (Math.floor(posZ)==countSx){
+            var plane= document.createElement('a-plane');
+            plane.setAttribute("position",{x:-4.5, y:6, z:posZ-20});
+            plane.setAttribute("rotation",{y:15});
+            plane.setAttribute("width","4");
+            plane.setAttribute("height","4.25");
+            plane.setAttribute("color","#FFF");
+            plane.setAttribute("src","#demofeed1");
+            plane.setAttribute("animation", {property: 'scale', dir: 'normal', dur: 1000, easing: 'easeInSine', loop: false, to: '2 2 0'})
+            sceneEl.appendChild(plane)
+            countSx-=20
+        }      
+        if (Math.floor(posZ)==countDx){
+            var plane= document.createElement('a-plane');
+            plane.setAttribute("position",{x:4.5, y:6, z:posZ-20});
+            plane.setAttribute("rotation",{y:-15});
+            plane.setAttribute("width","4");
+            plane.setAttribute("height","4.25");
+            plane.setAttribute("color","#FFF");
+            plane.setAttribute("src","#demofeed");
+             plane.setAttribute("animation", {property: 'scale', dir: 'normal', dur: 1000, easing: 'easeInSine', loop: false, to: '2 2 0'})
+            sceneEl.appendChild(plane)
+            countDx-=20
+        }
+      }
+      updateData();
+
+      </script>
+   </body>
+</html>
