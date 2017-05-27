@@ -8,10 +8,32 @@
       <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
         <script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>
+    <script src="libs/hammer.js"></script>
 
+    <script src="libs/Animation.js"></script>
+    <script src="libs/AnimationHandler.js"></script>
+
+        <script src="js/collada_animation.js"></script>
    </head>
+   <style type="text/css">
+     #audio_controls{
+      z-index:3;
+      position:absolute;
+      font-size: 10pt;
+     }
+   </style>
    <body>
+<!--<iframe src="https://open.spotify.com/embed?uri=spotify:track:5JunxkcjfCYcY7xJ29tLai"
+        frameborder="0" allowtransparency="true"></iframe>-->
       <!-- **** A-SCENE **** -->
+          <div id="audio_controls">
+          <audio id="abrasive"  autoplay="false" preload controls="true" >
+            <source src="music/bensound-goinghigher.mp3"> 
+            </source>
+          </audio>
+          <br>
+          Music: <a href>http://www.bensound.com</a>
+          </div>
       <a-scene vr-mode-ui="enabled: true" id="aframe_scene">
          <!-- IDEAS: 
         * Change sky color based on hour
@@ -24,12 +46,16 @@
          <a-assets>
          <img id="demofeed" src="textures/demofeed.png">
          <img id="demofeed1" src="textures/demofeed1.png">
+         <img id="demofeed2" src="textures/demofeed2.png">
+         <img id="demofeed3" src="textures/demofeed3.png">
          </a-assets>
          <a-entity position="0 0 -10" json-model="src:../models/json/mike_dancing.json" animation-mixer scale="1 1 1">
          </a-entity>
-         
+         <!-- ** AUDIO **-->
+     
+
          <!-- *** CAMERAS *** -->
-         <a-camera id="camera" position="0 3 0 " rotation="0 0 0 " fov="80" near="1" wasd-controls="enabled:false" power="false">
+         <a-camera id="camera" position="0 3 0 " rotation="0 0 0 " fov="80" near="0.1" wasd-controls="enabled:false" >
             <!-- 
                <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 400"
                   position="0 0 -3"
@@ -58,9 +84,9 @@
 
         <!-- **FEED PANELS**-->
         <!-- <a-plane id="feed_panel" rotation="0 15 0" position="-6 6 -10" height="8" width="8" material="shader: flat;" color="#666" ></a-plane>-->
-         <a-plane id="feed_panel" rotation="0 -15 0" position="4.5 6 -10" height="4" width="4" material="shader: flat;" color="#FFF" 
+         <a-plane id="feed_panel" rotation="0 -15 0" position="4.5 6.6 -10" height="6.3" width="5" material="shader: flat;" color="#FFF" 
          animation="property: scale; dir: normal; dur: 1000;
-                           easing: easeInSine; loop: false; to: 2 2 0" src="#demofeed"></a-plane>
+                           easing: easeInSine; loop: false; to: 2 2 0" src="#demofeed2"></a-plane>
 
         <!-- **SKY** -->
          <a-sky color="#d8e7ff" radius="350"></a-sky>
@@ -72,54 +98,116 @@
       var scene = sceneEl.object3D;
       var cameraEl = document.querySelector('a-camera');
       var camera = cameraEl.object3D;
-      var countSx =-1;
-      var countDx =-11;
+      var camera_pos_z =-1;
+      var side=0;
+      var count=0;
       var e_pressed= false;
-
+      var up_pressed= false;
+      var down_pressed= false;
+      var right_pressed= false;
+      var left_pressed= false;
+      var sample_img=["textures/demofeed.png","textures/demofeed1.png","textures/demofeed3.png"];
       document.addEventListener("keydown", function (){   
          var x = event.keyCode;
+         console.log(x);
          if(x==69){ //E KEY
             if(e_pressed==false) {e_pressed=true;}
             else {e_pressed= false;}
         }
+          if(x==87||x==38){ //w - up arrow KEY
+            up_pressed = true;
+        }
+          if(x==83||x==40){ //s - down arrow
+            down_pressed = true;
+        }
+          if(x==65||x==37){ // a - left arrow
+            left_pressed = true;   }
+          if(x==68||x==29){ //d-rigth arrow
+            right_pressed=true;
+        }
+
+      }
+)     
+      document.addEventListener("keyup", function (){   
+         var x = event.keyCode;
+         console.log(x);
+      
+          if(x==87||x==38){ //w - up arrow KEY
+            up_pressed = false;
+        }
+          if(x==83||x==40){ //s - down arrow
+            down_pressed = false;
+        }
+          if(x==65||x==37){ // a - left arrow
+            left_pressed = false;   }
+          if(x==68||x==29){ //d-rigth arrow
+            right_pressed=false;
+        }
+
       }
 )
 
          function updateData(){
         requestAnimationFrame(updateData);
         var posZ = camera.position.z;
-        if(e_pressed==true){
-          //camera.tranlateZ(-0.08);
-          camera.position.z-=0.08;
+       /* if(e_pressed==true||up_pressed==true){
+          camera.translateZ(-0.08);
+          //  cameraEl.setAttribute("position",{z:posZ-0.08});
+        } else if (down_pressed== true){
+          camera.translateZ(0.08);
         }
+*/
+        if (Math.floor(posZ)==camera_pos_z&&count<sample_img.length){
+            var plane= document.createElement('a-plane');
+         
+            plane.setAttribute("color","#FFF");
+            plane.setAttribute("src",sample_img[count]);
+            var image = new Image();
 
-        if (Math.floor(posZ)==countSx){
-            var plane= document.createElement('a-plane');
-            plane.setAttribute("position",{x:-4.5, y:6, z:posZ-20});
-            plane.setAttribute("rotation",{y:15});
-            plane.setAttribute("width","4");
-            plane.setAttribute("height","4.25");
-            plane.setAttribute("color","#FFF");
-            plane.setAttribute("src","#demofeed1");
+            image.src = sample_img[count];
+            var ratio = image.width / image.height;
+            plane.setAttribute('src',image.src)
+            plane.setAttribute('width', 5);
+            plane.setAttribute('height', 5 / ratio)
             plane.setAttribute("animation", {property: 'scale', dir: 'normal', dur: 1000, easing: 'easeInSine', loop: false, to: '2 2 0'})
+            if(side==0){
+
+            plane.setAttribute("position",{x:-4.5, y:5/ratio+0.3, z:posZ-20});
+            plane.setAttribute("rotation",{y:15});
+            side =1;
+            } else if (side==1){
+              plane.setAttribute("position",{x:4.5, y:6, z:posZ-20});
+              plane.setAttribute("rotation",{y:-15});
+              side =0;
+            }
             sceneEl.appendChild(plane)
-            countSx-=20
-        }      
-        if (Math.floor(posZ)==countDx){
-            var plane= document.createElement('a-plane');
-            plane.setAttribute("position",{x:4.5, y:6, z:posZ-20});
-            plane.setAttribute("rotation",{y:-15});
-            plane.setAttribute("width","4");
-            plane.setAttribute("height","4.25");
-            plane.setAttribute("color","#FFF");
-            plane.setAttribute("src","#demofeed");
-             plane.setAttribute("animation", {property: 'scale', dir: 'normal', dur: 1000, easing: 'easeInSine', loop: false, to: '2 2 0'})
-            sceneEl.appendChild(plane)
-            countDx-=20
-        }
+            camera_pos_z-=10
+            count++;
+            console.log(sample_img.length)
+            console.log(count)
+            
+        }       
       }
       updateData();
 
+function changeSky(){
+    var d = new Date();
+    var h = d.getHours();
+    console.log(h)
+   var sky=   document.querySelector("a-sky")
+
+if (h>10&&h<18){
+   sky.setAttribute("color","#8ed5ff")
+} else if (h>=18&&h<22){
+   sky.setAttribute("color","#f9ed9d")
+} else if (h>=22 ||h<6){
+   sky.setAttribute("color","#3165ce")
+} else if (h>=6&&h<10){
+   sky.setAttribute("color", "#e5faff")
+}
+}
+changeSky();
+loadCollada('models/avatars/uma/uma_avatar_matte.dae');
       </script>
    </body>
 </html>
