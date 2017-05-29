@@ -1,8 +1,11 @@
-      var z_neg_trigger =-2;
-      var x_neg_trigger =-2;
-      var x_pos_trigger=1
-      var z_pos_trigger=1;
-      var side=0;
+      var z_neg_trigger =-8;
+      var x_neg_trigger =-8;
+      var x_pos_trigger=5
+      var z_pos_trigger=5;
+      var sidezp=0;
+      var sidezn=0;
+      var sidexp=0;
+      var sidexn=0;
       var count=0;
       var countXneg=0;
       var countXpos=0;
@@ -13,12 +16,13 @@
       var twitter_sample=["sample_media/tweet/tweet1.png","sample_media/tweet/tweet2.png","sample_media/tweet/tweet3.png","sample_media/tweet/tweet4.png"]
 
 function updateData(){
+
         requestAnimationFrame(updateData);
         var posZ = camera.position.z-4;
         var posX = camera.position.x;
-        console.log("z : "+ posZ+ " x : " + posX)
-        console.log()
-        if (Math.floor(posZ)==z_pos_trigger&&countZpos<twitter_sample.length){
+        console.log("x : "+posX+ " z : "+ posZ)
+  
+        if (Math.floor(posZ)==z_pos_trigger&&posX<10&&posX>-10&&countZpos<twitter_sample.length){
             var plane= document.createElement('a-image');
          
             plane.setAttribute("color","#FFF");
@@ -33,15 +37,15 @@ function updateData(){
             plane.setAttribute('width', 5);
             plane.setAttribute('height', 5 / ratio)
             plane.setAttribute("animation", {property: 'scale', dir: 'normal', dur: 1000, easing: 'easeInSine', loop: false, to: '2 2 0'})
-            if(side==0){
+            if(sidezp==0){
 
             plane.setAttribute("position",{x:-4.5, y:5/ratio+0.3, z:z_pos_trigger+20});
             plane.setAttribute("rotation",{y:165});
-            side =1;
-            } else if (side==1){
+            sidezp =1;
+            } else if (sidezp==1){
               plane.setAttribute("position",{x:4.5, y:5/ratio+0.3, z:z_pos_trigger+20});
               plane.setAttribute("rotation",{y:195});
-              side =0;
+              sidezp =0;
             }
             sceneEl.appendChild(plane)
             z_pos_trigger +=10;
@@ -50,7 +54,7 @@ function updateData(){
         
             
         }       
-        if (Math.floor(posZ)==z_neg_trigger&&count<spotify_sample.length){
+        if (Math.floor(posZ)==z_neg_trigger&&posX<10&&posX>-10&&count<spotify_sample.length){
             var plane= document.createElement('a-image');
          
             plane.setAttribute("color","#FFF");
@@ -67,15 +71,15 @@ function updateData(){
             plane.setAttribute('width', 5);
             plane.setAttribute('height', 5 / ratio)
             plane.setAttribute("animation", {property: 'scale', dir: 'normal', dur: 1000, easing: 'easeInSine', loop: false, to: '2 2 0'})
-            if(side==0){
+            if(sidezn==0){
 
             plane.setAttribute("position",{x:-4.5, y:5/ratio+0.3, z:z_neg_trigger-20});
             plane.setAttribute("rotation",{y:15});
-            side =1;
-            } else if (side==1){
+            sidezn =1;
+            } else if (sidezn==1){
               plane.setAttribute("position",{x:4.5, y:5/ratio+0.3, z:z_neg_trigger-20});
               plane.setAttribute("rotation",{y:-15});
-              side =0;
+              sidezn =0;
             }
             sceneEl.appendChild(plane)
             z_neg_trigger-=10
@@ -84,7 +88,7 @@ function updateData(){
             console.log(count)
             
         }       
-        if (Math.floor(posX)==x_neg_trigger&&countXneg<amazon_sample.length){
+        if (Math.floor(posX)==x_neg_trigger&&posZ<10&&posZ>-10&&countXneg<amazon_sample.length){
             var plane= document.createElement('a-image');
          
             plane.setAttribute("color","#FFF");
@@ -97,23 +101,23 @@ function updateData(){
             plane.setAttribute('width', 5);
             plane.setAttribute('height', 5 / ratio)
             plane.setAttribute("animation", {property: 'scale', dir: 'normal', dur: 1000, easing: 'easeInSine', loop: false, to: '2 2 0'})
-            if(side==0){
+            if(sidexn==0){
             console.log("right")
             plane.setAttribute("position",{z:-4.5, y:5/ratio+0.3, x: x_neg_trigger-20});
             plane.setAttribute("rotation",{y:75});
-            side =1;
-          } else if (side==1){
+            sidexn =1;
+          } else if (sidexn==1){
             console.log("left")
               plane.setAttribute("position",{z:4.5, y:5/ratio+0.3, x: x_neg_trigger-20});
               plane.setAttribute("rotation",{y:105});
-              side =0;
+              sidexn =0;
             }
             sceneEl.appendChild(plane)
             x_neg_trigger-=10
             countXneg++;
             console.log(countXneg)
         }       
-        if (Math.floor(posX)==x_pos_trigger&&countXpos<etsy_sample.length){
+        if (Math.floor(posX)==x_pos_trigger&&posZ<10&&posZ>-10&&countXpos<etsy_sample.length){
             var plane= document.createElement('a-image');
          
             plane.setAttribute("color","#FFF");
@@ -126,16 +130,16 @@ function updateData(){
             plane.setAttribute('width', 5);
             plane.setAttribute('height', 5 / ratio)
             plane.setAttribute("animation", {property: 'scale', dir: 'normal', dur: 1000, easing: 'easeInSine', loop: false, to: '2 2 0'})
-            if(side==0){
+            if(sidexp==0){
             console.log("right")
             plane.setAttribute("position",{z:-4.5, y:5/ratio+0.3, x:x_pos_trigger+20});
             plane.setAttribute("rotation",{y:-75});
-            side =1;
-          } else if (side==1){
+            sidexp =1;
+          } else if (sidexp==1){
             console.log("left")
-              plane.setAttribute("position",{z:4.5, y:5/ratio+0.3, x:px_pos_trigger+20});
+              plane.setAttribute("position",{z:4.5, y:5/ratio+0.3, x:x_pos_trigger+20});
               plane.setAttribute("rotation",{y:-105});
-              side =0;
+              sidexp =0;
             }
             sceneEl.appendChild(plane)
             x_pos_trigger+=10

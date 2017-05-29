@@ -116,7 +116,7 @@ function loadCollada(model, model2) {
             childs[index].scale.set(0.5, 0.5, 0.5);
             //scene.add(childs[index]);
             obj3D.add(childs[index])
-
+			childs[index].position.y= 0.2;
             //childs[index].castShadow= true; doesn't work
             var animation = new THREE.Animation(childs[index], childs[index].geometry.animation);
             animations.push(animation);
@@ -171,7 +171,7 @@ function loadBot(model, model2) {
         if (bots[botIndex].skins.length > 0) {
             child = bots[botIndex].skins[botIndex];
             botChilds.push(child);
-            //botChilds[botIndex].position.set(-5, 0, -10);
+            botChilds[botIndex].position.set(-5, 0, -10);
             //botChilds[0].position.set((Math.random() * (10))-5, 0, (Math.random() * (20)) -10);
             botChilds[botIndex].scale.set(0.5, 0.5, 0.5);
             obj3D.add(botChilds[botIndex])
@@ -179,9 +179,9 @@ function loadBot(model, model2) {
             //childs[index].castShadow= true; doesn't work
             var animation = new THREE.Animation(botChilds[botIndex], botChilds[botIndex].geometry.animation);
             botAnimations.push(animation);
-            botAnimations[botIndex].loop = true;
+            botAnimations[botIndex].loop = false;
             botAnimations[botIndex].timeScale = 1;
-            //animation.play();
+            animation.play();
             //animate();
             myReq = requestAnimationFrame(animate);
 
@@ -221,22 +221,15 @@ function loadBot(model, model2) {
     avatars.push(entityEl)
 }
 
-
-//AUTOMATED AVATARS
-$(document).ready(function() {
-    document.querySelector('a-scene').addEventListener('loaded', function() {
-        //	autoAvatar()
-    })
-});
-
 function autoAvatar() {
-    loadBot('../models/avatars/collette/collette_avatar_matte.dae');
+    console.log("av loading")
+    loadBot('models/avatars/dennis/dennis_avatar_walk_matte.dae');
 
 
     setInterval(function() {
         //var circle = 360 * Math.PI / 180;
         //	botChilds[0].rotation.y = Math.random() * circle;
-        botChilds[botIndex].rotation.y += 90 * Math.PI / 180;
+      //  botChilds[botIndex].rotation.y += 90 * Math.PI / 180;
 
     }, 5000);
 }
