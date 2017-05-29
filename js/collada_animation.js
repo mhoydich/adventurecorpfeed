@@ -110,6 +110,7 @@ function loadCollada(model,model2) {
 	
 	loader.load(model, function ( collada ) { 
 
+ 
 
 cancelAnimationFrame(myReq);
 		models.push(collada);
@@ -121,7 +122,7 @@ cancelAnimationFrame(myReq);
 			childs[index].scale.set(0.5,0.5,0.5);
 			//scene.add(childs[index]);
 			obj3D.add(childs[index])
-			console.log(childs[index]);
+			
 			//childs[index].castShadow= true; doesn't work
 			animation = new THREE.Animation(childs[index], childs[index].geometry.animation);
 			animations.push(animation);
@@ -243,7 +244,7 @@ cancelAnimationFrame(myReq);
 //AUTOMATED AVATARS
 $(document).ready(function(){
 	document.querySelector('a-scene').addEventListener('loaded', function () {
-		autoAvatar()
+	//	autoAvatar()
 	})
 });
 
