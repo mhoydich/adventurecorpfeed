@@ -92,7 +92,7 @@
          
          <!-- *** ENVIRONMENT *** -->
          <!-- ** GROUND **-->
-         <a-plane id="ground" rotation="-90 0 0" position="0 0 0" height="400" width="400" material="shader: flat;" src="textures/grass.jpg" repeat="100, 100" ></a-plane>
+         <a-plane id="ground" rotation="-90 0 0" position="0 0 0" height="400" width="400" material="shader: flat;" color="#339b14"  ></a-plane>
          <a-plane id="path" rotation="-90 0 0 " position="0 0.01 0" height="400" width="20" material="shader: flat;" color="#333" ></a-plane>
          <a-plane id="path_borders" rotation="-90 0 0 " position="0 0.001 0" height="400" width="26" material="shader: flat;" color="#444" ></a-plane>
          <a-plane id="path2" rotation="-90 90 0 " position="0 0.01 0" height="400" width="20" material="shader: flat;" color="#333" ></a-plane>
@@ -100,11 +100,11 @@
 
 
 
-        <!-- **FEED PANELS**-->
+        <!-- **LOGIN PANELS**-->
         <!-- <a-plane id="feed_panel" rotation="0 15 0" position="-6 6 -10" height="8" width="8" material="shader: flat;" color="#666" ></a-plane>-->
-      <!--   <a-plane id="feed_panel" rotation="0 -15 0" position="4.5 6.6 -10" height="6.3" width="5" material="shader: flat;" color="#FFF" 
-         animation="property: scale; dir: normal; dur: 1000;
-                           easing: easeInSine; loop: false; to: 2 2 0" src="#demofeed2"></a-plane>-->
+    <a-image id="feed_panel" rotation="0 0 0" position="0 6.6 -10" height="1.5" width="5" material="shader: flat;" color="#FFF"  src="images/spotify_logo.png"
+         animation="property: position; dir: alternate; dur: 1000;
+                           easing: easeInSine; loop: false; to: 0 6.8 -10"></a-image>
 
         <!-- **SKY** -->
          <a-sky color="#d8e7ff" radius="350"></a-sky>
@@ -116,164 +116,11 @@
       var scene = sceneEl.object3D;
       var cameraEl = document.querySelector('a-camera');
       var camera = cameraEl.object3D;
-      var camera_pos_z =-1;
-      var camera_pos_x =-1;
-     var trigger=1
-     var z_pos_trigger=1;
-      var side=0;
-      var count=0;
-      var countXneg=0;
-      var countXpos=0;
-      var countZpos=0;
-
-
-      var sample_img=["sample_media/spotify/song1.png","sample_media/spotify/song2.png","sample_media/spotify/song3.png","sample_media/spotify/song4.png"];
-      var amazon_sample=["sample_media/amazon/amazon1.png","sample_media/amazon/amazon2.png","sample_media/amazon/amazon3.png","sample_media/amazon/amazon4.png"]
-      var etsy_sample=["sample_media/etsy/etsy1.png","sample_media/etsy/etsy2.png","sample_media/etsy/etsy3.png","sample_media/etsy/etsy4.png"]
-      var twitter_sample=["sample_media/tweet/tweet1.png","sample_media/tweet/tweet2.png","sample_media/tweet/tweet3.png","sample_media/tweet/tweet4.png"]
-     
-    
-    
-
-         function updateData(){
-        requestAnimationFrame(updateData);
-        var posZ = camera.position.z-4;
-        var posX = camera.position.x;
-        console.log(posZ)
-        if (Math.floor(posZ)==z_pos_trigger&&countZpos<twitter_sample.length){
-            var plane= document.createElement('a-image');
-         
-            plane.setAttribute("color","#FFF");
-            var image = new Image();
-            image.src = twitter_sample[countZpos];
-            image.onload = function(){
-              plane.setAttribute('src',image.src)
-              console.log(image)
-            }
-          
-            var ratio = image.width / image.height;
-          //  
-            plane.setAttribute('width', 5);
-            plane.setAttribute('height', 5 / ratio)
-            plane.setAttribute("animation", {property: 'scale', dir: 'normal', dur: 1000, easing: 'easeInSine', loop: false, to: '2 2 0'})
-            if(side==0){
-
-            plane.setAttribute("position",{x:-4.5, y:5/ratio+0.3, z:posZ+20});
-            plane.setAttribute("rotation",{y:165});
-            side =1;
-            } else if (side==1){
-              plane.setAttribute("position",{x:4.5, y:5/ratio+0.3, z:posZ+20});
-              plane.setAttribute("rotation",{y:195});
-              side =0;
-            }
-            sceneEl.appendChild(plane)
-            z_pos_trigger +=10;
-            countZpos++;
-            console.log(z_pos_trigger)
-        
-            
-        }       
-        if (Math.floor(posZ)==camera_pos_z&&count<sample_img.length){
-            var plane= document.createElement('a-image');
-         
-            plane.setAttribute("color","#FFF");
-           // plane.setAttribute("src",sample_img[count]);
-            var image = new Image();
-              image.src = sample_img[count];
-            image.onload = function(){
-              plane.setAttribute('src',image.src)
-              console.log(image)
-            }
-          
-            var ratio = image.width / image.height;
-          //  
-            plane.setAttribute('width', 5);
-            plane.setAttribute('height', 5 / ratio)
-            plane.setAttribute("animation", {property: 'scale', dir: 'normal', dur: 1000, easing: 'easeInSine', loop: false, to: '2 2 0'})
-            if(side==0){
-
-            plane.setAttribute("position",{x:-4.5, y:5/ratio+0.3, z:posZ-20});
-            plane.setAttribute("rotation",{y:15});
-            side =1;
-            } else if (side==1){
-              plane.setAttribute("position",{x:4.5, y:5/ratio+0.3, z:posZ-20});
-              plane.setAttribute("rotation",{y:-15});
-              side =0;
-            }
-            sceneEl.appendChild(plane)
-            camera_pos_z-=10
-            count++;
-            console.log(sample_img.length)
-            console.log(count)
-            
-        }       
-        if (Math.floor(posX)==camera_pos_x&&countXneg<amazon_sample.length){
-            var plane= document.createElement('a-image');
-         
-            plane.setAttribute("color","#FFF");
-            plane.setAttribute("src",amazon_sample[countXneg]);
-            var image = new Image();
-
-            image.src = amazon_sample[countXneg];
-            var ratio = image.width / image.height;
-            plane.setAttribute('src',image.src)
-            plane.setAttribute('width', 5);
-            plane.setAttribute('height', 5 / ratio)
-            plane.setAttribute("animation", {property: 'scale', dir: 'normal', dur: 1000, easing: 'easeInSine', loop: false, to: '2 2 0'})
-            if(side==0){
-            console.log("right")
-            plane.setAttribute("position",{z:-4.5, y:5/ratio+0.3, x:posX-20});
-            plane.setAttribute("rotation",{y:75});
-            side =1;
-          } else if (side==1){
-            console.log("left")
-              plane.setAttribute("position",{z:4.5, y:5/ratio+0.3, x:posX-20});
-              plane.setAttribute("rotation",{y:105});
-              side =0;
-            }
-            sceneEl.appendChild(plane)
-            camera_pos_x-=10
-            countXneg++;
-            console.log(countXneg)
-        }       
-        if (Math.floor(posX)==trigger&&countXpos<etsy_sample.length){
-            var plane= document.createElement('a-image');
-         
-            plane.setAttribute("color","#FFF");
-            plane.setAttribute("src",etsy_sample[countXpos]);
-            var image = new Image();
-
-            image.src = etsy_sample[countXpos];
-            var ratio = image.width / image.height;
-            plane.setAttribute('src',image.src)
-            plane.setAttribute('width', 5);
-            plane.setAttribute('height', 5 / ratio)
-            plane.setAttribute("animation", {property: 'scale', dir: 'normal', dur: 1000, easing: 'easeInSine', loop: false, to: '2 2 0'})
-            if(side==0){
-            console.log("right")
-            plane.setAttribute("position",{z:-4.5, y:5/ratio+0.3, x:posX+20});
-            plane.setAttribute("rotation",{y:-75});
-            side =1;
-          } else if (side==1){
-            console.log("left")
-              plane.setAttribute("position",{z:4.5, y:5/ratio+0.3, x:posX+20});
-              plane.setAttribute("rotation",{y:-105});
-              side =0;
-            }
-            sceneEl.appendChild(plane)
-            trigger+=10
-            countXpos++;
-            console.log(countXpos)
-        }       
-      }
-
-
-
-updateData();
-
-
-loadCollada('models/avatars/uma/uma_avatar_matte.dae');
+  
+      loadCollada('models/avatars/uma/uma_avatar_matte.dae');
+      
       </script>
       <script src="js/change_sky.js"></script>
+      <script src="js/feed_generator.js"></script>
    </body>
 </html>
