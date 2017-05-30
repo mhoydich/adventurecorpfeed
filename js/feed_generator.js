@@ -1,7 +1,8 @@
-      var z_neg_trigger =-8;
-      var x_neg_trigger =-8;
-      var x_pos_trigger=5
-      var z_pos_trigger=5;
+      var z_neg_trigger =-9;
+      var x_neg_trigger =-9;
+      var x_pos_trigger=8
+      var z_pos_trigger=8;
+      var x_pos_trigger2=10;
       var sidezp=0;
       var sidezn=0;
       var sidexp=0;
@@ -9,18 +10,20 @@
       var count=0;
       var countXneg=0;
       var countXpos=0;
+      var countXpos2=0;
       var countZpos=0;
       var spotify_sample=["sample_media/spotify/song1.png","sample_media/spotify/song2.png","sample_media/spotify/song3.png","sample_media/spotify/song4.png"];
       var amazon_sample=["sample_media/amazon/amazon1.png","sample_media/amazon/amazon2.png","sample_media/amazon/amazon3.png","sample_media/amazon/amazon4.png"]
       var etsy_sample=["sample_media/etsy/etsy1.png","sample_media/etsy/etsy2.png","sample_media/etsy/etsy3.png","sample_media/etsy/etsy4.png"]
       var twitter_sample=["sample_media/tweet/tweet1.png","sample_media/tweet/tweet2.png","sample_media/tweet/tweet3.png","sample_media/tweet/tweet4.png"]
+      var hypekills=["sample_media/hypekills/hypekills1.jpg","sample_media/hypekills/hypekills2.jpg","sample_media/hypekills/hypekills3.jpg","sample_media/hypekills/hypekills4.jpg","sample_media/hypekills/hypekills5.jpg","sample_media/hypekills/hypekills6.jpg","sample_media/hypekills/hypekills7.jpg"]
 
 function updateData(){
 
         requestAnimationFrame(updateData);
-        var posZ = camera.position.z-4;
+       var posZ = camera.position.z-4;
         var posX = camera.position.x;
-        console.log("x : "+posX+ " z : "+ posZ)
+     /*    console.log("x : "+posX+ " z : "+ posZ)*/
   
         if (Math.floor(posZ)==z_pos_trigger&&posX<10&&posX>-10&&countZpos<twitter_sample.length){
             var plane= document.createElement('a-image');
@@ -145,6 +148,38 @@ function updateData(){
             x_pos_trigger+=10
             countXpos++;
             console.log(countXpos)
+        }   
+
+        if (Math.floor(posX)==x_pos_trigger2&&posZ<-40&&posZ>-60&&countXpos2<hypekills.length){
+            console.log("Hypekills Path")
+            var plane= document.createElement('a-image');
+         
+            plane.setAttribute("color","#FFF");
+            plane.setAttribute("src",hypekills[countXpos2]);
+            var image = new Image();
+
+            image.src = hypekills[countXpos2];
+            var ratio = image.width / image.height;
+            plane.setAttribute('src',image.src)
+            plane.setAttribute('width', 5);
+            plane.setAttribute('height', 5 / ratio)
+            plane.setAttribute("animation", {property: 'scale', dir: 'normal', dur: 1000, easing: 'easeInSine', loop: false, to: '2 2 0'})
+            if(sidexp==0){
+            console.log("right")
+            plane.setAttribute("position",{z:-4.5-50, y:5/ratio+0.3, x:x_pos_trigger2+20});
+            plane.setAttribute("rotation",{y:-75});
+            sidexp =1;
+          } else if (sidexp==1){
+            console.log("left")
+              plane.setAttribute("position",{z:4.5-50, y:5/ratio+0.3, x:x_pos_trigger2+20});
+              plane.setAttribute("rotation",{y:-105});
+              sidexp =0;
+            }
+            sceneEl.appendChild(plane)
+            x_pos_trigger2+=10
+            countXpos2++;
+                       console.log(countXpos2)
+
         }       
       }
 

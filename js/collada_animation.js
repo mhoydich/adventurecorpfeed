@@ -171,7 +171,7 @@ function loadBot(model, model2) {
         if (bots[botIndex].skins.length > 0) {
             child = bots[botIndex].skins[botIndex];
             botChilds.push(child);
-            botChilds[botIndex].position.set(-5, 0, -10);
+            botChilds[botIndex].position.set(15, 0, -45);
             //botChilds[0].position.set((Math.random() * (10))-5, 0, (Math.random() * (20)) -10);
             botChilds[botIndex].scale.set(0.5, 0.5, 0.5);
             obj3D.add(botChilds[botIndex])
