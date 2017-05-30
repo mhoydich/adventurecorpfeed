@@ -56,7 +56,8 @@ function updateData(){
             console.log(z_pos_trigger)
         
             
-        }       
+        } 
+
         if (Math.floor(posZ)==z_neg_trigger&&posX<10&&posX>-10&&count<spotify_sample.length){
             var plane= document.createElement('a-image');
          
@@ -85,6 +86,7 @@ function updateData(){
               sidezn =0;
             }
             sceneEl.appendChild(plane)
+            plane.setAttribute("id", "image"+count)
             z_neg_trigger-=10
             count++;
             console.log(spotify_sample.length)
