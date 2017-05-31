@@ -25,3 +25,83 @@
           
             }
         }
+        
+document.addEventListener("keydown", function() {
+    var x = event.keyCode;
+    if ((x == 87 || x == 38) && animations[choose].isPlaying == false) { //W || Up arrow --> walk forward
+        animations[choose].play();
+        animations[choose].timeScale = 1;
+    } else if ((x == 83 || x == 40) && animations[choose].isPlaying == false) { //S || Down arrow --> walk backward
+        animations[choose].play();
+        animations[choose].loop = true;
+        animations[choose].timeScale = -1;
+        setTimeout(function() {
+            animations[choose].loop = false;
+        }, 50)
+    } else if (x == 69) {
+        if (animations[choose].isPlaying == false) { //E --> auto walk forward
+            animations[choose].play();
+            animations[choose].loop = true;
+            animations[choose].timeScale = 1;
+
+            //setTimeout(function(){animations[choose].loop=false;}, 50)
+        } else if (animations[choose].isPlaying == true) {
+            animations[choose].loop = false;
+
+        }
+    } else if ((x == 32) && animations[choose].isPlaying == false) { //SPACEBAR
+        animationz[0].play();
+        animationz[0].timeScale = 1;
+    }
+})
+
+var mc = new Hammer(document);
+mc.get('pinch').set({
+    enable: true
+});
+mc.get('swipe').set({
+    direction: Hammer.DIRECTION_VERTICAL
+});
+//swipe up &down get triggered also with mouse 
+
+mc.on('pinchout', function(ev) {
+    if (animations[choose].isPlaying == false) { //E --> auto walk forward
+        animations[choose].play();
+        animations[choose].loop = true;
+        animations[choose].timeScale = 1;
+
+        //setTimeout(function(){animations[choose].loop=false;}, 50)
+    } else if (animations[choose].isPlaying == true) {
+        animations[choose].loop = false;
+
+    }
+
+})
+mc.on('pinchin', function(ev) {
+    if (animations[choose].isPlaying == false) { //E --> auto walk forward
+        animations[choose].play();
+        animations[choose].loop = true;
+        animations[choose].timeScale = 1;
+
+        //setTimeout(function(){animations[choose].loop=false;}, 50)
+    } else if (animations[choose].isPlaying == true) {
+        animations[choose].loop = false;
+
+    }
+
+
+})
+mc.on("swipeup", function(ev) {
+    console.log(ev.type);
+    animations[choose].play();
+    animations[choose].timeScale = 1;
+});
+mc.on("swipedown", function(ev) {
+    console.log(ev.type);
+    animations[choose].play();
+    animations[choose].loop = true;
+    animations[choose].timeScale = -1;
+    setTimeout(function() {
+        animations[choose].loop = false;
+    }, 50)
+});

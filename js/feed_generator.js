@@ -16,7 +16,11 @@
       var amazon_sample=["sample_media/amazon/amazon1.png","sample_media/amazon/amazon2.png","sample_media/amazon/amazon3.png","sample_media/amazon/amazon4.png"]
       var etsy_sample=["sample_media/etsy/etsy1.png","sample_media/etsy/etsy2.png","sample_media/etsy/etsy3.png","sample_media/etsy/etsy4.png"]
       var twitter_sample=["sample_media/tweet/tweet1.png","sample_media/tweet/tweet2.png","sample_media/tweet/tweet3.png","sample_media/tweet/tweet4.png"]
-      var hypekills=["sample_media/hypekills/hypekills1.jpg","sample_media/hypekills/hypekills2.jpg","sample_media/hypekills/hypekills3.jpg","sample_media/hypekills/hypekills4.jpg","sample_media/hypekills/hypekills5.jpg","sample_media/hypekills/hypekills6.jpg","sample_media/hypekills/hypekills7.jpg"]
+      var hypekills=["sample_media/hypekills/hypekills1.jpg","sample_media/hypekills/money_3d.gif","sample_media/hypekills/hypekills2.jpg","sample_media/hypekills/make_it_rain.gif","sample_media/hypekills/hypekills3.jpg","sample_media/hypekills/hypekills4.jpg","sample_media/hypekills/hypekills5.jpg","sample_media/hypekills/hypekills6.jpg","sample_media/hypekills/hypekills7.jpg","sample_media/hypekills/pow_3d.gif"]
+
+var reader = new FileReader();
+
+
 
 function updateData(){
 
@@ -153,18 +157,43 @@ function updateData(){
         }   
 
         if (Math.floor(posX)==x_pos_trigger2&&posZ<-40&&posZ>-60&&countXpos2<hypekills.length){
-            console.log("Hypekills Path")
-            var plane= document.createElement('a-image');
-         
-            plane.setAttribute("color","#FFF");
-            plane.setAttribute("src",hypekills[countXpos2]);
-            var image = new Image();
+          hypekillsPath(posX, posZ)
+           x_pos_trigger2+=10
+           countXpos2++;
+        }       
+      }
 
-            image.src = hypekills[countXpos2];
+      function hypekillsPath(posX, posZ){
+             console.log("Hypekills Path")
+            var plane= document.createElement('a-image');
+
+            plane.setAttribute("color","#FFF");
+            var texture = hypekills[countXpos2];
+            var image = new Image();
+            image.src = texture;
+
+            image.onload = function() {
+          
+         
+            if (texture.includes('gif')==true){
+           // var plane= document.createElement('a-plane');
+
+            console.log("why not")
+            plane.setAttribute( 'src', "url(" + image.src + ")");
+            plane.setAttribute( 'shader', "gif");
+            plane.setAttribute('width', 5);
+            plane.setAttribute('height', 5);
+            var ratio =1;
+            }
+            else{
+            //var plane= document.createElement('a-image');
+            plane.setAttribute("src",hypekills[countXpos2]);
             var ratio = image.width / image.height;
             plane.setAttribute('src',image.src)
             plane.setAttribute('width', 5);
             plane.setAttribute('height', 5 / ratio)
+          }
+
             plane.setAttribute("animation", {property: 'scale', dir: 'normal', dur: 1000, easing: 'easeInSine', loop: false, to: '2 2 0'})
             if(sidexp==0){
             console.log("right")
@@ -177,13 +206,18 @@ function updateData(){
               plane.setAttribute("rotation",{y:-105});
               sidexp =0;
             }
+            
+           
+            console.log(countXpos2)
             sceneEl.appendChild(plane)
-            x_pos_trigger2+=10
-            countXpos2++;
-                       console.log(countXpos2)
 
-        }       
-      }
+                      }
+ 
+           }
+            
+
+       
+      
 
 
 

@@ -7,13 +7,15 @@
       <!--<link href="../css/style.css" rel="stylesheet" type="text/css" media="screen" />-->
       <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
       <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
-        <script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>
-    <script src="libs/hammer.js"></script>
+        
+      <script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>
+      <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+      <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
+      <script src="libs/hammer.js"></script>
+      <script src="libs/Animation.js"></script>
+      <script src="libs/AnimationHandler.js"></script>
 
-    <script src="libs/Animation.js"></script>
-    <script src="libs/AnimationHandler.js"></script>
-
-        <script src="js/collada_animation.js"></script>
+      <script src="js/collada_animation.js"></script>
         <script src="js/ui.js"></script>
    </head>
    <style type="text/css">
@@ -37,10 +39,9 @@
           <br>
           <button id="toggleBackground" onclick="">Toggle background</button>
           </div>
-      <a-scene vr-mode-ui="enabled: true" id="aframe_scene">
+      <!--<a-scene fog="type: exponential; color: #AAA" id="aframe_scene" >-->
+        <a-scene fog="type: exponential; density:0.005; color:#FFF">
          <!-- IDEAS: 
-        * Change sky color based on hour
-        * Change sky texture
 
 
          -->
@@ -68,13 +69,14 @@
          <img id="tweet3" src="sample_media/tweet/tweet3.png">
          <img id="tweet4" src="sample_media/tweet/tweet4.png">
          
-         <img id="hypekills1" src="sample_media/hypekills/hypekills1.jpg">
+       <!--  <img id="hypekills1" src="sample_media/hypekills/hypekills1.jpg">
          <img id="hypekills2" src="sample_media/hypekills/hypekills2.jpg">
          <img id="hypekills3" src="sample_media/hypekills/hypekills3.jpg">
          <img id="hypekills4" src="sample_media/hypekills/hypekills4.jpg">
          <img id="hypekills5" src="sample_media/hypekills/hypekills5.jpg">
          <img id="hypekills6" src="sample_media/hypekills/hypekills6.jpg">
          <img id="hypekills7" src="sample_media/hypekills/hypekills7.jpg">
+         <img id="hypekills8" src="sample_media/hypekills/make_it_rain.gif">-->
          </a-assets>
          <a-entity position="0 0 -10" json-model="src:../models/json/mike_dancing.json" animation-mixer scale="1 1 1">
          </a-entity>
@@ -105,7 +107,7 @@
          <a-entity id="environment">
          <!-- *** ENVIRONMENT *** -->
          <!-- ** GROUND** -->
-         <a-plane id="ground" rotation="-90 0 0" position="0 -0.1 0" height="400" width="400" material="shader: flat;" color="#339b14"  ></a-plane>
+         <a-plane id="ground" rotation="-90 0 0" position="0 -0.2 0" height="400" width="400" material="shader: flat;" color="#339b14"  ></a-plane>
         
         <!-- **PATHS** -->
          <a-plane id="pathZneg" rotation="-90 0 0 " position="0 0.1 -110" height="200" width="20" material="shader: flat;" color="#333" >
@@ -180,6 +182,7 @@
       loadCollada('models/avatars/uma/uma_avatar_matte.dae');
       autoAvatar();
       </script>
+      
       <script src="js/change_sky.js"></script>
       <script src="js/feed_generator.js"></script>
       <script src="js/interactions.js"></script>

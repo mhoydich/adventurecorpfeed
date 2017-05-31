@@ -14,87 +14,6 @@ var botIndex = 0;
 
 var avatars = [] //entity elements
 
-document.addEventListener("keydown", function() {
-    var x = event.keyCode;
-    if ((x == 87 || x == 38) && animations[choose].isPlaying == false) { //W || Up arrow --> walk forward
-        animations[choose].play();
-        animations[choose].timeScale = 1;
-    } else if ((x == 83 || x == 40) && animations[choose].isPlaying == false) { //S || Down arrow --> walk backward
-        animations[choose].play();
-        animations[choose].loop = true;
-        animations[choose].timeScale = -1;
-        setTimeout(function() {
-            animations[choose].loop = false;
-        }, 50)
-    } else if (x == 69) {
-        if (animations[choose].isPlaying == false) { //E --> auto walk forward
-            animations[choose].play();
-            animations[choose].loop = true;
-            animations[choose].timeScale = 1;
-
-            //setTimeout(function(){animations[choose].loop=false;}, 50)
-        } else if (animations[choose].isPlaying == true) {
-            animations[choose].loop = false;
-
-        }
-    } else if ((x == 32) && animations[choose].isPlaying == false) { //SPACEBAR
-        animationz[0].play();
-        animationz[0].timeScale = 1;
-    }
-})
-
-var mc = new Hammer(document);
-mc.get('pinch').set({
-    enable: true
-});
-mc.get('swipe').set({
-    direction: Hammer.DIRECTION_VERTICAL
-});
-//swipe up &down get triggered also with mouse 
-
-mc.on('pinchout', function(ev) {
-    if (animations[choose].isPlaying == false) { //E --> auto walk forward
-        animations[choose].play();
-        animations[choose].loop = true;
-        animations[choose].timeScale = 1;
-
-        //setTimeout(function(){animations[choose].loop=false;}, 50)
-    } else if (animations[choose].isPlaying == true) {
-        animations[choose].loop = false;
-
-    }
-
-})
-mc.on('pinchin', function(ev) {
-    if (animations[choose].isPlaying == false) { //E --> auto walk forward
-        animations[choose].play();
-        animations[choose].loop = true;
-        animations[choose].timeScale = 1;
-
-        //setTimeout(function(){animations[choose].loop=false;}, 50)
-    } else if (animations[choose].isPlaying == true) {
-        animations[choose].loop = false;
-
-    }
-
-
-})
-mc.on("swipeup", function(ev) {
-    console.log(ev.type);
-    animations[choose].play();
-    animations[choose].timeScale = 1;
-});
-mc.on("swipedown", function(ev) {
-    console.log(ev.type);
-    animations[choose].play();
-    animations[choose].loop = true;
-    animations[choose].timeScale = -1;
-    setTimeout(function() {
-        animations[choose].loop = false;
-    }, 50)
-});
-
-
 
 function loadCollada(model, model2) {
     $("#loading").show();
@@ -103,9 +22,6 @@ function loadCollada(model, model2) {
     obj3D = new THREE.Object3D()
 
     loader.load(model, function(collada) {
-
-
-
         cancelAnimationFrame(myReq);
         models.push(collada);
 
@@ -156,22 +72,24 @@ function loadCollada(model, model2) {
     sceneEl.appendChild(entityEl);
 }
 
-function loadBot(model, model2) {
+function loadBot(model, model2, pos, rot) {
 
 
     var loader = new THREE.ColladaLoader();
     obj3D = new THREE.Object3D();
 
     loader.load(model, function(collada) {
-
+    console.log(botIndex)
 
         cancelAnimationFrame(myReq);
         bots.push(collada);
 
         if (bots[botIndex].skins.length > 0) {
-            child = bots[botIndex].skins[botIndex];
+            child = bots[botIndex].skins[0];
             botChilds.push(child);
-            botChilds[botIndex].position.set(15, 0, -45);
+            
+            botChilds[botIndex].position.set(pos.x,pos.y,pos.z);
+            botChilds[botIndex].rotation.set(rot.x,rot.y,rot.z);
             //botChilds[0].position.set((Math.random() * (10))-5, 0, (Math.random() * (20)) -10);
             botChilds[botIndex].scale.set(0.5, 0.5, 0.5);
             obj3D.add(botChilds[botIndex])
@@ -184,11 +102,12 @@ function loadBot(model, model2) {
             animation.play();
             //animate();
             myReq = requestAnimationFrame(animate);
+            botAnimations[botIndex].play()
 
+            botIndex++;
 
         }
 
-        botAnimations[botIndex].play()
 
     })
     if (model2) {
@@ -213,8 +132,8 @@ function loadBot(model, model2) {
 
 
         })
+        
     }
-
     var entityEl = document.createElement('a-entity');
     entityEl.setAttribute('avatar', '');
     sceneEl.appendChild(entityEl);
@@ -223,7 +142,13 @@ function loadBot(model, model2) {
 
 function autoAvatar() {
     console.log("av loading")
-    loadBot('models/avatars/dennis/dennis_avatar_walk_matte.dae');
+    var den_pos = new THREE.Vector3(15, 0, -45);
+    var den_rot = new THREE.Vector3(0, 0, 0);
+    console.log(den_pos)
+    var sree_pos = new THREE.Vector3(10, 0, 10);
+    var sree_rot = new THREE.Vector3(0, -1.51, 0);
+    loadBot('models/avatars/dennis/dennis_avatar_walk_matte.dae',null,den_pos, den_rot);
+    loadBot('models/avatars/sree/sree_avatar_matte.dae',null, sree_pos, sree_rot);
 
 
     setInterval(function() {
@@ -278,28 +203,19 @@ function animate() {
     //***BOT ANIMATION***
     // 	if(botAnimations[botIndex].isPlaying==true&&botAnimations[botIndex].timeScale==1){ 
     //     	botChilds[botIndex].translateZ(3*delta)
-
     //     	//avatars[botIndex].object3D.translateZ(3*delta)
-
-
     //     	var v1 = botChilds[botIndex].position;
     //     	var v2 = childs[choose].position;
-
     //     	var dist = new THREE.Vector3(3, 0.0, 3);
     //     	var dir = new THREE.Vector3(); // create once an reuse it
     // 		dir.subVectors( v2, v1 );
-
     // 		dir.addVectors(dir, dist)
     //     	console.log(dir)
-
     //     	botChilds[botIndex].position.add(dir)
     // } 
     //     	else if(botAnimations[0].isPlaying==true&&botAnimations[botIndex].timeScale==-1){ 
     //     	botChilds[botIndex].translateZ(-3*delta)
-
     // 	} 
-
-
 
 
     //AVATAR ANIMATION
