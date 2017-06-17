@@ -29,7 +29,7 @@ function loadCollada(model, model2) {
             child = models[index].skins[0];
             childs.push(child);
             //childs[index].position.set((Math.random() * (12))+20, 0, (Math.random() * (18)) +16);
-            childs[index].scale.set(0.5, 0.5, 0.5);
+            childs[index].scale.set(0.16, 0.16, 0.16);
             //scene.add(childs[index]);
             obj3D.add(childs[index])
 			childs[index].position.y= 0.2;
@@ -91,7 +91,7 @@ function loadBot(model, model2, pos, rot) {
             botChilds[botIndex].position.set(pos.x,pos.y,pos.z);
             botChilds[botIndex].rotation.set(rot.x,rot.y,rot.z);
             //botChilds[0].position.set((Math.random() * (10))-5, 0, (Math.random() * (20)) -10);
-            botChilds[botIndex].scale.set(0.5, 0.5, 0.5);
+            botChilds[botIndex].scale.set(0.16, 0.16, 0.16);
             obj3D.add(botChilds[botIndex])
 
             //childs[index].castShadow= true; doesn't work
@@ -231,7 +231,7 @@ function animate() {
             var rot = document.querySelector('#camera').getAttribute('rotation');
 
             childs[choose].rotation.y = rot.y * Math.PI / 180 + Math.PI
-            camera.position.z = childs[choose].position.z + 4; //add the avatar to different layer?
+            camera.position.z = childs[choose].position.z + 1; //add the avatar to different layer?
             camera.position.x = childs[choose].position.x;
 
         } else if (document.querySelector('#camera2').getAttribute('camera').active == true) {

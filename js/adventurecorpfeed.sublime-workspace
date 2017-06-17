@@ -1,0 +1,875 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"image",
+				"imageLoad"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"up",
+				"up_pressed"
+			],
+			[
+				"de",
+				"demofeed1"
+			],
+			[
+				"camera",
+				"camera_pos_z"
+			],
+			[
+				"e",
+				"e_pressed"
+			],
+			[
+				"poi",
+				"position"
+			],
+			[
+				"scene",
+				"sceneEl"
+			],
+			[
+				"ob",
+				"object3D"
+			],
+			[
+				"bot",
+				"botIndex"
+			],
+			[
+				"obj",
+				"Object3D"
+			],
+			[
+				"avata",
+				"avatars"
+			],
+			[
+				"en",
+				"entityEl"
+			],
+			[
+				"avat",
+				"avatars"
+			],
+			[
+				"sticker",
+				"stickerEl"
+			],
+			[
+				"copa",
+				"copiableSticker"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"movab",
+				"movableSticker"
+			],
+			[
+				"cop",
+				"copyandpaste"
+			],
+			[
+				"copy",
+				"copyandpaste"
+			],
+			[
+				"posi",
+				"positionable"
+			],
+			[
+				"sticke",
+				"stickers_arr"
+			],
+			[
+				"rotat",
+				"rotatableSticker"
+			],
+			[
+				"pos",
+				"position"
+			],
+			[
+				"mova",
+				"movableSticker"
+			],
+			[
+				"reis",
+				"resizableSticker"
+			],
+			[
+				"res",
+				"resizableSticker"
+			],
+			[
+				"select",
+				"selectResizable"
+			],
+			[
+				"resiz",
+				"resizableSticker"
+			],
+			[
+				"margi",
+				"margin-left"
+			],
+			[
+				"too",
+				"toolbar_div"
+			],
+			[
+				"sete",
+				"setAttribute"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"posti",
+				"positionable"
+			],
+			[
+				"input",
+				"media_input_div"
+			],
+			[
+				"screen",
+				"screenOrientation"
+			],
+			[
+				"scrre",
+				"screenOrientation"
+			],
+			[
+				"scre",
+				"screenOrientation"
+			],
+			[
+				"ani",
+				"animations"
+			],
+			[
+				"auto",
+				"autoAvatar"
+			],
+			[
+				"stickers",
+				"stickers_att"
+			],
+			[
+				"points",
+				"pointsX"
+			],
+			[
+				"resi",
+				"resizableSticker"
+			],
+			[
+				"obje",
+				"object"
+			],
+			[
+				"sel",
+				"selectSticker"
+			],
+			[
+				"background-",
+				"background-image"
+			],
+			[
+				"fov",
+				"fov_div"
+			],
+			[
+				"choo",
+				"choose_avatar"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"hover",
+				"hover_div"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"menu",
+				"menu_btn"
+			],
+			[
+				"padding",
+				"padding-top"
+			],
+			[
+				"menu_",
+				"menu_btn"
+			],
+			[
+				"tex",
+				"texture"
+			],
+			[
+				"UI",
+				"UI_kit"
+			],
+			[
+				"di",
+				"difZ"
+			],
+			[
+				"dif",
+				"difY"
+			],
+			[
+				"rot",
+				"rotX"
+			],
+			[
+				"addstc",
+				"addStick"
+			],
+			[
+				"add",
+				"addStick"
+			],
+			[
+				"mouse",
+				"mousedown"
+			],
+			[
+				"ch",
+				"ch_sticker"
+			],
+			[
+				"stic",
+				"stickers"
+			],
+			[
+				"sti",
+				"sticker_btn"
+			],
+			[
+				"ch_",
+				"ch_sticker"
+			],
+			[
+				"text",
+				"textures"
+			],
+			[
+				"choose",
+				"chooseProf"
+			],
+			[
+				"box_height",
+				"box_height"
+			],
+			[
+				"av",
+				"avPosition"
+			],
+			[
+				"set",
+				"setAttribute"
+			],
+			[
+				"tr",
+				"translateZ"
+			],
+			[
+				"ava",
+				"avaId"
+			],
+			[
+				"Ava",
+				"avaId"
+			],
+			[
+				"c",
+				"class\tAttr"
+			],
+			[
+				"icon",
+				"icon_width"
+			],
+			[
+				"box",
+				"box_width"
+			],
+			[
+				"afra",
+				"aframe_scene"
+			],
+			[
+				"marg",
+				"margin"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"fov_",
+				"fov_val"
+			],
+			[
+				"seel",
+				"select_profile"
+			],
+			[
+				"p",
+				"padding-right"
+			],
+			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"paddi",
+				"padding-top"
+			],
+			[
+				"ho",
+				"hover_div"
+			],
+			[
+				"x",
+				"x"
+			],
+			[
+				"men",
+				"menu_btn"
+			],
+			[
+				"ad",
+				"adjust_fov"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"text-a",
+				"text-align"
+			],
+			[
+				"rea",
+				"reader"
+			],
+			[
+				"pl",
+				"planeId"
+			],
+			[
+				"on",
+				"onload"
+			],
+			[
+				"source",
+				"sourceMP4"
+			],
+			[
+				"sou",
+				"sourceMP4"
+			],
+			[
+				"file",
+				"filetype"
+			],
+			[
+				"v",
+				"v_texture"
+			],
+			[
+				"o",
+				"object"
+			],
+			[
+				"texture",
+				"texture_changeable"
+			],
+			[
+				"Set",
+				"setAttribute"
+			],
+			[
+				"to_",
+				"to_change"
+			],
+			[
+				"div",
+				"input_div"
+			],
+			[
+				"to",
+				"to_move"
+			],
+			[
+				"read",
+				"readURL"
+			],
+			[
+				"pla",
+				"plane1"
+			],
+			[
+				"mo",
+				"movable"
+			],
+			[
+				"inter",
+				"intersects"
+			],
+			[
+				"camer",
+				"cameraAframe"
+			],
+			[
+				"y",
+				"y"
+			],
+			[
+				"Ca",
+				"camera"
+			],
+			[
+				"animat",
+				"animations"
+			],
+			[
+				"anim",
+				"animations"
+			],
+			[
+				"load",
+				"loadCollada"
+			],
+			[
+				"k",
+				"keyCode"
+			],
+			[
+				"skin",
+				"skinAnim"
+			],
+			[
+				"kf",
+				"kfAnimations"
+			],
+			[
+				"kfAnim",
+				"kfAnimationsLength"
+			],
+			[
+				"last",
+				"lastTimestamp"
+			],
+			[
+				"frame",
+				"frameTime"
+			],
+			[
+				"h",
+				"hierarchy"
+			],
+			[
+				"chronos",
+				"chronoStop"
+			],
+			[
+				"chronost",
+				"chronoStart"
+			],
+			[
+				"if",
+				"if\tif"
+			],
+			[
+				"in",
+				"intersects"
+			],
+			[
+				"intr",
+				"intersectObjects"
+			],
+			[
+				"Spher",
+				"sphereGeometry"
+			],
+			[
+				"for",
+				"for\tfor (…) {…} (Improved Native For-Loop)"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/xampp/htdocs/adventurecorpfeed/js/feed_generator.js",
+		"/C/xampp/htdocs/adventurecorpfeed/index.html",
+		"/C/xampp/htdocs/adventurecorpfeed/js/collada_animation.js",
+		"/C/xampp/htdocs/FuturecoDavide/html/room.html",
+		"/C/xampp/htdocs/FuturecoDavide/js/collada_animation.js",
+		"/C/xampp/htdocs/FuturecoDavide/css/style.css",
+		"/C/xampp/htdocs/FuturecoDavide/js/UI.js",
+		"/C/xampp/htdocs/FuturecoDavide/index.html",
+		"/C/xampp/htdocs/FuturecoDavide/js/mouse_cursor.js",
+		"/C/xampp/htdocs/FuturecoDavide/js/attach_image.js",
+		"/C/xampp/htdocs/FuturecoDavide/js/hammer.js",
+		"/C/Users/Davide Carlier/Desktop/VR Course Unity/vrnd-course2-course-assets-006/Assets/myFirstSurfaceShader.shader",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/FuturecoDavide/js/360screenshot.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/FuturecoDavide/js/collada_animation.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/FuturecoDavide/js/attach_image.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/FuturecoDavide/html/room.html",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/FuturecoDavide/css/style.css",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/FuturecoDavide/js/raycaster_custom.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/FuturecoDavide/js/texture_loader.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/FuturecoDavide/js/json_animation.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/FuturecoDavide/index.html",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/FuturecoDavide/js/move_object.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/FuturecoDavide/js/mouse_cursor.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/WebVR_prototiping/js/collada_animation.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/WebVR_prototiping/js/attach_image.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/WebVR_prototiping/css/style.css",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/WebVR_prototiping/html/room.html",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/WebVR_prototiping/js/json_animation.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/WebVR_prototiping/html/json_animation.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/WebVR_prototiping/index.html",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/WebVR_prototiping/js/move_object.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/WebVR_prototiping/js/360screenshot.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/WebVR_prototiping/js/ball_animation.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/WebVR_prototiping/js/loaders/collada/AnimationHandler.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/WebVR_prototiping/js/loaders/collada/Animation.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/WebVR_prototiping/js/loaders/collada/KeyFrameAnimation.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/WebVR_prototiping/js/loaders/collada/ColladaLoader.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/WebVR_prototiping/room.html",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/WebVR_prototiping/js/append_link.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/WebVR_prototiping/js/fit-texture.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/WebVR_prototiping/Nuova cartella/style.css",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/WebVR_prototiping/Nuova cartella/index.html",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/helloagain.php",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/my_projects/incubators/html/incubators.html",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/my_projects/incubators/js/main.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/aframe_room.html",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/my_projects/incubators/css/incubators.css",
+		"/C/Users/Davide Carlier/Desktop/PRJ webgl/glMatrix-0.9.5.min.js",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/PRJ webgl/hello_webgl.html",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/prova/css/cool.css",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/prova/html/cool.html",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/my_projects/incubators/lib/ColladaLoader.js",
+		"/C/Users/Davide Carlier/Desktop/new 1.html",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/my_projects/incubators_interface/incubators/html/incubators.html",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/my_projects/incubators_interface/incubators/css/incubators.css",
+		"/C/Program Files (x86)/EasyPHP-Devserver-16.1/eds-www/my_projects/incubators_interface/incubators/css/dat.gui.css"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 117.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"var",
+			"object3d",
+			"avatars",
+			"copyandpaste",
+			"copyand",
+			"offset",
+			"aframe_",
+			"afra",
+			"source",
+			"addStickero",
+			"rotatableSticker",
+			"movableSticker",
+			"move_btn",
+			" function selectResizable() {\n            if (resizableSticker.length > 0) {\n\n                document.addEventListener('mousemove', resizeSticker, false);\n                document.addEventListener('mouseup', function() {\n                    resizableSticker.pop();\n                    document.removeEventListener('mousemove', resizeSticker, false);\n                });\n                //  $(\"html\").css('cursor','col-resize');\n\n            }\n        }\n\n        function resizeSticker(event) {\n            if (resizableSticker.length > 0) {\n                mouse.x = (event.clientX / window.innerWidth) * 2 - 1;\n                mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;\n                pointsX.push(mouse.x)\n                var len = pointsX.length\n                if (pointsX[len - 1] > pointsX[len - 2]) {\n                    resizableSticker[0].scale.x += 0.06\n                    resizableSticker[0].scale.y += 0.06\n                } else if (pointsX[len - 1] < pointsX[len - 2]) {\n                    resizableSticker[0].scale.x -= 0.06\n                    resizableSticker[0].scale.y -= 0.06\n                }\n            }\n        }\n",
+			"arr",
+			"sticker_arr",
+			"p_input",
+			"media_i",
+			"media",
+			"sticker",
+			"stickerk",
+			"sticker",
+			"avatar_div",
+			"ch_av",
+			"chav",
+			"avatar_menu_btn",
+			"resize",
+			"avatar_div",
+			"padding-left",
+			"margin-left",
+			"margin",
+			"btn",
+			"brn",
+			"button",
+			"p",
+			"positionable",
+			"addsticker",
+			"reader",
+			"screenOr",
+			"input_div",
+			"media",
+			"imageInput",
+			"cancel",
+			"avatar_btn",
+			"ch_av",
+			"avatar_div",
+			"sticker_div",
+			"sticker_dov",
+			"0",
+			"delta",
+			"myreq",
+			"animate",
+			"childs[index]",
+			"childs",
+			"button",
+			"logo",
+			"animate",
+			"choose",
+			"play",
+			"touchstart click",
+			"click touchstart",
+			"att",
+			"addsti",
+			"addsticker",
+			"click",
+			"touchstart",
+			"pointsX",
+			";\n",
+			"resizableSticker",
+			"stickers_arr",
+			"resiza",
+			"sticker",
+			"icon",
+			"iconù",
+			"icon",
+			"click",
+			"fov",
+			"choose_avatar",
+			"ch_sticker",
+			"sticker",
+			"menu_div",
+			"expand",
+			"menu",
+			"exp_menu",
+			"menu_btn",
+			".menu_btn",
+			"menu_btn",
+			"menu_button",
+			"menu_btn",
+			"image",
+			"input_div",
+			"input",
+			"p_input",
+			"select",
+			"ch_sticker",
+			"sticker",
+			"menu",
+			"sticker",
+			"archive",
+			"models",
+			"img",
+			"lol",
+			"òpò",
+			"sticker_btn",
+			"a-scene",
+			"addstic",
+			"addst",
+			"camera2",
+			"visible",
+			"fadeout",
+			"touchend",
+			"touchstart",
+			"touchend",
+			"choo",
+			"choose",
+			"ROT",
+			"POS",
+			"POA",
+			"POD",
+			"enter",
+			"test",
+			"shadow",
+			"choose",
+			"vr",
+			"fov",
+			"fovval",
+			"button",
+			"cancel2"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"screenOrientation",
+			"botChilds[0]",
+			"click",
+			"touchstart click",
+			"click touchstart",
+			"avatar_div",
+			"stickers_div",
+			"menu_icon",
+			"select_obj",
+			"target"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "adventurecorpfeed.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 625.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"D:\\Davide Carlier\\Documents\\sublimeProjects\\feed.sublime-project"
+			]
+		],
+		"width": 475.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 314.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -5,18 +5,15 @@
       <!--  <link rel="icon" href="../favicon/" type="image/png">-->
       <title>VR Feed Experience</title>
       <!--<link href="../css/style.css" rel="stylesheet" type="text/css" media="screen" />-->
-      <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-      <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
-        
-      <script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>
-      <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
-      <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
+      <script src="libs/jquery-3.2.1.min.js"></script>
+      <script src="libs/aframe5.js"></script>
+      <script src="libs/aframe-animation-component.min.js"></script>
+      <script src="libs/aframe-gif-shader.min.js"></script>
+      <script src="libs/aframe-gif-component.min.js"></script>
       <script src="libs/hammer.js"></script>
       <script src="libs/Animation.js"></script>
       <script src="libs/AnimationHandler.js"></script>
 
-      <script src="js/collada_animation.js"></script>
-        <script src="js/ui.js"></script>
    </head>
    <style type="text/css">
      #audio_controls{
@@ -48,7 +45,7 @@
 
          <!-- *** ASSETS *** -->
          <a-assets>
-
+<!--
          <img id="spotify1" src="sample_media/spotify/song1.png">
          <img id="spotify2" src="sample_media/spotify/song2.png">
          <img id="spotify3" src="sample_media/spotify/song3.png">
@@ -69,7 +66,7 @@
          <img id="tweet3" src="sample_media/tweet/tweet3.png">
          <img id="tweet4" src="sample_media/tweet/tweet4.png">
          
-       <!--  <img id="hypekills1" src="sample_media/hypekills/hypekills1.jpg">
+         <img id="hypekills1" src="sample_media/hypekills/hypekills1.jpg">
          <img id="hypekills2" src="sample_media/hypekills/hypekills2.jpg">
          <img id="hypekills3" src="sample_media/hypekills/hypekills3.jpg">
          <img id="hypekills4" src="sample_media/hypekills/hypekills4.jpg">
@@ -84,7 +81,7 @@
      
 
          <!-- *** CAMERAS *** -->
-         <a-camera id="camera" position="0 3 0 " rotation="0 0 0 " fov="80" near="0.1" wasd-controls="enabled:false" >
+         <a-camera id="camera" position="0 0.5 0 " rotation="0 0 0 " fov="80" near="0.1" wasd-controls="enabled:false" >
             <!-- 
                <a-entity id="cursor" cursor="fuse: true; fuseTimeout: 400"
                   position="0 0 -3"
@@ -170,6 +167,8 @@
 
        
       </a-scene>
+            <script src="js/collada_animation.js"></script>
+
       <script>
 
       var sceneEl = document.querySelector('a-scene');
@@ -186,5 +185,9 @@
       <script src="js/change_sky.js"></script>
       <script src="js/feed_generator.js"></script>
       <script src="js/interactions.js"></script>
+      <script src="js/collada_animation.js"></script>
+      <script src="js/json_animation.js"></script>
+      <script src="js/ui.js"></script>
+      
    </body>
 </html>
